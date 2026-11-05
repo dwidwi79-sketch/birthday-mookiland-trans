@@ -4,27 +4,32 @@ Birthday package information and online booking portal for Mookiland.
 
 ## Architecture
 - Frontend: static web app hosted with GitHub Pages
-- Backend: Google Apps Script Web App (to be created)
-- Database: Google Sheets (to be created)
-- Booking workflow: slot availability, 72-hour pending-deposit hold, 50% deposit, admin verification
+- Backend: Google Apps Script Web App
+- Database: a new, dedicated Google Sheets workbook created by the Apps Script setup function
 
 ## Project status
-Initial scaffold. No existing application source was provided; implementation starts from a clean project.
+- [x] Initial GitHub project scaffold
+- [x] Initial Apps Script database schema
+- [x] Idempotent Google Sheets database setup function
+- [x] Initial Apps Script health and public configuration endpoints
+- [x] One-time Google setup guide
+- [ ] Customer package catalogue and booking interface
+- [ ] Race-safe slot reservation and 72-hour expiry
+- [ ] Payment-proof upload and admin verification
+- [ ] Admin dashboard, invoice and reporting
+- [ ] End-to-end testing and production deployment
 
-## Business rules captured
+## Booking rules captured
 - Locations: Mooki Garden, Mooki Backyard, Covered Terrace Lounge
-- Sessions: Morning and Afternoon
-- Maximum: one booking per location per session (two sessions per day)
+- Sessions: Morning and Afternoon (exact operating hours still need confirmation)
+- Maximum: one booking per location per session per day
 - Deposit: 50% of booking total
 - Pending booking slot hold: 72 hours
 - Statuses: Pending Deposit, Confirmed, Expired
 - Admin notification: dwi.purnami@mookiland.com
 
-## Next implementation stages
-1. Build customer-facing package catalogue and booking interface.
-2. Build Apps Script API and Google Sheets schema.
-3. Implement race-safe slot reservation and 72-hour expiry.
-4. Build admin dashboard, payment verification, and email notifications.
-5. Test end-to-end and configure GitHub Pages / Apps Script deployment.
+## Google setup
+See [SETUP.md](./SETUP.md). The setup must be authorized from the Google account that will own the new database. The booking workflow is not live yet.
 
-Do not store bank credentials, API keys, or other secrets in frontend files.
+## Security
+Do not store bank credentials, API keys, passwords, OAuth tokens, or other secrets in frontend files or this public repository. Do not make the database spreadsheet public.
