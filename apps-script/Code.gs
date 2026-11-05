@@ -75,7 +75,7 @@ function createBooking_(payload) {
     if (!name || !email || !whatsapp || !childName) {
       throw new Error("Customer name, email, WhatsApp and birthday child's name are required.");
     }
-    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       throw new Error("Please provide a valid email address.");
     }
     if (!isValidDateString_(eventDate) || eventDate <= todayString_()) {
@@ -312,7 +312,7 @@ function cleanText_(value, maxLength) {
 }
 
 function isValidDateString_(value) {
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(value)) return false;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
   const d = new Date(value + "T00:00:00");
   return !isNaN(d.getTime()) && Utilities.formatDate(d, "UTC", "yyyy-MM-dd") === value;
 }
