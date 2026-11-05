@@ -327,7 +327,7 @@ function todayString_() {
 }
 
 function isWeekendOrHoliday_(dateString) {
-  const day = new Date(dateString + "T00:00:00").getUTCDay();
+  const day = new Date(dateString + "T12:00:00Z").getUTCDay();
   // Public holidays will be maintained in Settings/holiday calendar in a later stage.
   return day === 0 || day === 6;
 }
