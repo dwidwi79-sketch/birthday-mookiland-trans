@@ -313,7 +313,7 @@ function cleanText_(value, maxLength) {
 
 function isValidDateString_(value) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const d = new Date(value + "T00:00:00");
+  const d = new Date(value + "T00:00:00Z");
   return !isNaN(d.getTime()) && Utilities.formatDate(d, "UTC", "yyyy-MM-dd") === value;
 }
 
